@@ -1,0 +1,10 @@
+{
+    "java.configuration.updateBuildConfiguration": "interactive",
+    
+    "java.project.referencedLibraries": [
+            "lib/*.jar",
+            
+            "c:\\Users\\LisaG\\aufgabe_bahnhöfe\\complete\\lib\\opencsv-5.7.1.jar"
+        ]
+    
+}
