@@ -1,5 +1,5 @@
 package com.example.restservice;
-
+//class Distance to store output data---------------------------------------------------------------------------
 public class Distance {
 
 	private final String from;
@@ -14,7 +14,7 @@ public class Distance {
 		this.km=km;
 
 	}
-
+//getter---------------------------------------------------------------------------------------------------------
 	public String getFrom() {
 		return from;
 	}
@@ -28,4 +28,5 @@ public class Distance {
 	public String getKm() {
 		return km;
 	}
+
 }
