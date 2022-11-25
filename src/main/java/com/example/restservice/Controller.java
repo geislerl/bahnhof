@@ -67,14 +67,25 @@ Double lat1=Double.parseDouble(Start[6].replace(",","."));
 Double lat2=Double.parseDouble(Ende[6].replace(",","."));
 Double lon1=Double.parseDouble(Start[5].replace(",","."));
 Double lon2=Double.parseDouble(Ende[5].replace(",","."));
+
 System.out.println("Lat1 = Breite1 = "+lat1);
 System.out.println("Lat2 = Breite2 = "+lat2);
 System.out.println("Lon1 = länge1 = "+lon1);
 System.out.println("Lon2 = länge2 = "+lon2);
+
 Double dx=71.5*(lon1-lon2);
 Double dy=111.3*(lat1-lat2);
-String distance=String.valueOf(Math.sqrt(dx*dx+dy*dy));//pythagoras
-//String distance=String.valueOf(6370*Math.acos((Math.sin(lat1)*Math.sin(lat2))+(Math.cos(lat1)*Math.cos(lat2)*Math.cos(lon2-lon1))));//better formula, but faulty
+//String distance=String.valueOf(Math.sqrt(dx*dx+dy*dy));//pythagoras
+
+String distance=String.valueOf(6370*Math.acos((Math.sin(lat1*(Math.PI/180))*Math.sin(lat2*(Math.PI/180)))+(Math.cos(lat1*(Math.PI/180))*Math.cos(lat2*(Math.PI/180))*Math.cos(lon2*(Math.PI/180)-lon1*(Math.PI/180)))));//better formula, but faulty
+/* System.out.println("sin(lat1) = "+Math.sin(lat1));
+System.out.println("sin(lat2) = "+Math.sin(lat2));
+System.out.println("cos(lat1) = "+Math.cos(lat1));
+System.out.println("cos(lat2) = "+Math.cos(lat2));
+System.out.println("cos(lon2-lon1) = "+Math.cos(lon2-lon1));
+System.out.println("sin(lat1)*sin(lat2) = "+Math.sin(lat1)*Math.sin(lat2));
+System.out.println("cos(lat1)*cos(lat2)*cos(lon2-lon1) = "+(Math.cos(lat1)*Math.cos(lat2)*Math.cos(lon2-lon1)));
+System.out.println("distance = "+distance); */
 String Distance_round=roundDecimalUsingBigDecimal(distance,0);
 		return new Distance(Start[3],Ende[3],Distance_round,"km");
 	}
